@@ -1,0 +1,10 @@
+{
+  "description": "منصة لإدارة مشاريع البناء في اليمن، تربط العملاء والمقاولين والحرفيين والموردين لتنسيق العمل والمواد والمدفوعات والتسويات بشفافية.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

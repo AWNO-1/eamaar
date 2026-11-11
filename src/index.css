@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+@font-face {
+  font-family: 'Typokar';
+  src: url('/fonts/typokar.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --font-display: 'Typokar', 'Tajawal', sans-serif;
+  --font-body: 'Tajawal', 'Typokar', sans-serif;
+  --color-canvas: #eae0d2;
+  --color-ink: #1e2225;
+  --color-mute: #6e6a64;
+  --color-graphite: #2b3035;
+  --color-oak: #6e5646;
+  --color-gold: #d8a868;
+  --color-ok: #2b6e44;
+  --color-coral: #c84b31;
+}
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: radial-gradient(circle at 50% 20%, #f5efe6 0%, #dfd3c3 55%, #c8b9a6 100%);
+    -webkit-tap-highlight-color: transparent;
+  }
+  button { cursor: pointer; }
+  h1, h2, h3, h4, .font-display { font-family: var(--font-display); font-weight: 400; }
+}
+
+@layer components {
+  .clay-moon {
+    position: relative;
+    background: linear-gradient(145deg, #fff 0%, #efece6 48%, #dad3c8 100%);
+    border: 1px solid rgba(255,255,255,.75);
+    box-shadow: 0 10px 20px -4px rgba(38,30,22,.22), 0 4px 8px -2px rgba(38,30,22,.14),
+      inset 0 3px 4px rgba(255,255,255,.95), inset -2px 0 4px rgba(255,255,255,.6),
+      inset 2px 0 4px rgba(175,165,152,.35), inset 0 -5px 8px rgba(166,156,142,.55);
+  }
+  .clay-graphite {
+    position: relative; color: #fff;
+    background: linear-gradient(145deg, #464e54 0%, #2b3035 45%, #181b1f 100%);
+    border: 1px solid rgba(110,120,130,.38);
+    box-shadow: 0 12px 22px -4px rgba(18,20,23,.42), 0 4px 8px -2px rgba(0,0,0,.28),
+      inset 0 2.5px 4px rgba(255,255,255,.42), inset -2px 0 5px rgba(255,255,255,.14),
+      inset 0 -6px 10px rgba(8,10,12,.78);
+  }
+  .clay-oak {
+    position: relative; color: #fff;
+    background: linear-gradient(145deg, #927561 0%, #6e5646 48%, #49372b 100%);
+    border: 1px solid rgba(185,154,132,.42);
+    box-shadow: 0 12px 22px -4px rgba(58,40,28,.42), 0 4px 8px -2px rgba(40,28,18,.25),
+      inset 0 2.5px 4px rgba(255,246,238,.5), inset -2px 0 5px rgba(255,235,220,.18),
+      inset 0 -6px 10px rgba(36,24,16,.75);
+  }
+  .clay-card {
+    position: relative;
+    background: linear-gradient(155deg, #fbf9f6 0%, #eae4dc 52%, #dcd4c9 100%);
+    border: 1.5px solid rgba(255,255,255,.85);
+    box-shadow: 0 14px 26px -6px rgba(45,36,26,.18), 0 4px 10px -2px rgba(45,36,26,.1),
+      inset 0 3px 5px rgba(255,255,255,.95), inset 0 -6px 10px rgba(178,168,154,.45);
+  }
+  .clay-inset {
+    background: linear-gradient(180deg, #ddd5c9 0%, #ebe5db 100%);
+    box-shadow: inset 0 2px 5px rgba(60,45,30,.22), 0 1px 0 rgba(255,255,255,.85);
+    border: 1px solid rgba(255,255,255,.5);
+  }
+  /* glossy wet strip */
+  .gloss::before {
+    content: ""; position: absolute; top: 3px; inset-inline: 12%; height: 30%;
+    border-radius: 999px; pointer-events: none; z-index: 1;
+    background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,0));
+  }
+  .clay-moon.gloss::before { background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,0)); }
+  .press { transition: transform .18s cubic-bezier(.34,1.56,.64,1); }
+  .press:active { transform: scale(.95) translateY(2px); }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes scan {
+  from { top: 12%; }
+  to { top: 86%; }
+}
